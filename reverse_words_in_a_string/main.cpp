@@ -5,14 +5,6 @@ using namespace std;
 
 //http://baike.baidu.com/view/1005388.htm?fr=aladdin#4
 
-//string &operator=(const string &s);//把字符串s赋给当前字符串
-//string &assign(const char *s);//用c类型字符串s赋值
-//string &assign(const char *s, int n);//用c字符串s开始的n个字符赋值
-//string &assign(const string &s);//把字符串s赋给当前字符串
-//string &assign(int n, char c);//用n个字符c赋值给当前字符串
-//string &assign(const string &s, int start, int n);//把字符串s中从start开始的n个字符赋给当前字符
-//string &assign(const_iterator first, const_itertor last); //把first和last迭代器之间的部分赋给字符串
-
 //两次翻转 单词翻转 句子翻转
 class Solution {
 
