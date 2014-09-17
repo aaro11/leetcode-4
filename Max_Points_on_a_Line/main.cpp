@@ -1,4 +1,4 @@
-
+ï»¿
 #include <vector>
 #include <map>
 using namespace std;
@@ -57,7 +57,7 @@ public:
 					continue;
 				}
 					
-				//ÇóÆäËûµãÓëÕâÌõÖ±ÏßµÄĞ±ÂÊ
+				//æ±‚å…¶ä»–ç‚¹ä¸è¿™æ¡ç›´çº¿çš„æ–œç‡
 				double slope = (points[i].x - points[j].x == 0) ? 0 : (points[i].y - points[j].y + 0.0) / (points[i].x - points[j].x);
 				iter = slopes.find(slope);
 				if (iter == slopes.end())
@@ -69,7 +69,7 @@ public:
 					slopes[slope]++;
 				}
 			}
-			//±éÀúmapÇóÀïÃæÖµ×î´óµÄ
+			//éå†mapæ±‚é‡Œé¢å€¼æœ€å¤§çš„
 			for (iter = slopes.begin(); iter != slopes.end(); iter++)
 			{
 				if (max < (iter->second + sameCount))

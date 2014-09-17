@@ -1,7 +1,7 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 
-//ÓÃÕ»
+//ç”¨æ ˆ
 
 typedef struct stack{
 	char c[100];
@@ -22,7 +22,7 @@ void pushStack(stack *s, char ch)
 {
 	s->top++;
 	if (s->top >= s->size)
-		printf("ÒÑÂú");
+		printf("å·²æ»¡");
 	else
 		s->c[s->top] = ch;
 }
@@ -30,7 +30,7 @@ char popStack(stack *s)
 {
 	char ch;
 	if (s->top == -1)
-		printf("ÒÑ¿Õ");
+		printf("å·²ç©º");
 	else
 		ch = s->c[s->top--];
 	return ch;
