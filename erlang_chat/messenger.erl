@@ -55,11 +55,11 @@
 %%%messengerserver runs
 server_node()->
 	messenger@bill.
-	%%%This is the serverprocessforthe "messenger"
-	%%%the user listhastheformat [{ClientPid1, Name1},{ClientPid22,
-	Name2},...]
-	server(User_List)->
-		receive
+
+%%%This is the serverprocessforthe "messenger"
+%%%the user listhastheformat [{ClientPid1, Name1},{ClientPid22,	Name2},...]
+server(User_List)->
+	receive
 	{From,logon, Name}->
 		New_User_List =server_logon(From, Name, User_List),
 		server(New_User_List);
@@ -71,6 +71,7 @@ server_node()->
 		io:format("list isnow: ~p~n",[User_List]),
 		server(User_List)
 	end.
+
 %%%Starttheserver
 start_server()->
 	register(messenger,spawn(messenger, server, [[]])).
@@ -78,12 +79,12 @@ start_server()->
 %%%Serveradds anewusertotheuserlist
 server_logon(From, Name, User_List) ->
 	%%check if loggedonanywhereelse
+	% http://qqdenghaigui.iteye.com/blog/1554541
 	case lists:keymember(Name,2, User_List) of
 		true ->
-			From ! {messenger,stop, user_exists_at_other_node},  %reject
-			logon
+			From ! {messenger,stop, user_exists_at_other_node},  %%%reject logon	
 			User_List;
-		false->
+		false ->
 			From ! {messenger,logged_on},
 			[{From, Name} | User_List]     %adduser tothelist
 	end.
@@ -112,11 +113,11 @@ server_transfer(From, Name,To,Message, User_List) ->
 			From ! {messenger,sent}
 	end.
 %%% User Commands
+% 内建函数 whereis(RegisteredName)检测如果一个注册的进程名称叫RegisteredName 存在，如果存在，返回 pid。否则返回 undefined。
 logon(Name) ->
 	case whereis(mess_client)of 
 		undefined->
-			register(mess_client,
-			spawn(messenger,client,[server_node(), Name]));
+			register(mess_client, spawn(messenger,client,[server_node(), Name]));
 		_->
 			already_logged_on
 	end.
