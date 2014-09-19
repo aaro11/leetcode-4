@@ -30,10 +30,10 @@ logoff() ->
 	mess_client !logoff.
 	message(ToName,Message) ->
 		case whereis(mess_client)of %Test iftheclientis running
-	undefined->
-		not_logged_on;
-	_->
-		mess_client !#message_to{to_name=ToName,message=Message},
-		ok
+			undefined->
+				not_logged_on;
+			_->
+				mess_client !#message_to{to_name=ToName,message=Message},
+				ok
 	end.
 %%%----ENDFILE----

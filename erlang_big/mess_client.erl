@@ -28,6 +28,7 @@ await_result()->
 			exit(normal);
 		#server_reply{message=What}->
 			io:format("~p~n",[What])
+		% 超时
 		after5000->
 			io:format("Noresponsefrom server~n",[]),
 			exit(timeout)

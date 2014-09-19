@@ -28,7 +28,7 @@ start_server()->
 
 %%%Serveradds anewusertotheuserlist
 server_logon(From, Name, User_List) ->
-%%check if loggedonanywhereelse
+%%check if logged on anywhere else
 	case lists:keymember(Name,2, User_List) of
 		true ->
 			From !#abort_client{message=user_exists_at_other_node},
