@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #define N 5
 
 int a[N] = { 1, 2, 3, 4, 5 };
